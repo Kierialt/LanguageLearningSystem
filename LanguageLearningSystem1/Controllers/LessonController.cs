@@ -1,15 +1,53 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using LanguageLearningSystem1.Services;
+using LanguageLearningSystem1.Models;
 
-public class LessonController : Controller
+namespace LanguageLearningSystem1.Controllers
 {
-    public IActionResult Start()
+    [ApiController]
+    [Route("api/[controller]")]
+    public class LessonController : ControllerBase
     {
-        return View(); 
-    }
+        private readonly ILessonService _lessonService;
 
-    public IActionResult StartLesson()
-    {
-        // Logika rozpoczęcia lekcji
-        return View(); 
+        public LessonController(ILessonService lessonService)
+        {
+            _lessonService = lessonService;
+        }
+
+        [HttpPost]
+        public IActionResult CreateLesson(Lesson lesson)
+        {
+            _lessonService.AddLesson(lesson);
+            return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetLesson(int id)
+        {
+            var lesson = _lessonService.GetLesson(id);
+            return lesson != null ? Ok(lesson) : NotFound();
+        }
+
+        [HttpPut]
+        public IActionResult UpdateLesson(Lesson lesson)
+        {
+            _lessonService.UpdateLesson(lesson);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteLesson(int id)
+        {
+            _lessonService.DeleteLesson(id);
+            return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult GetAllLessons()
+        {
+            return Ok(_lessonService.GetAllLessons());
+        }
     }
 }
+
