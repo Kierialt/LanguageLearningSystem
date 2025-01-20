@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Rozpoczęcie nauki";
+}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Podłączenie animacji za pomocą Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Podłączenie własnych stylów -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6e7f88, #1c3144);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffb94d;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        .buttons-container {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ffb94d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn:hover {
+                background-color: #ff8c00;
+            }
+
+        .info-section {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #e0e0e0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeIn">Witamy w systemie nauki!</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">
+            Cieszymy się, że jesteś z nami. Zaczynamy twoją drogę nauki.
+        </p>
+
+        <div class="buttons-container">
+            <!-- Przycisk do rozpoczęcia lekcji -->
+            <a href="/Lesson/StartLesson" class="btn animate__animated animate__zoomIn animate__delay-2s">
+                Rozpocznij lekcję
+            </a>
+        </div>
+
+        <div class="info-section animate__animated animate__fadeIn animate__delay-3s">
+            <p>W tej sekcji znajduje się więcej informacji o tym, czego możesz się spodziewać w lekcjach.</p>
+            <p>Przygotuj się na ekscytującą podróż w nauce!</p>
+        </div>
+    </div>
+
+    <!-- Podłączenie skryptu z animacjami -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script>
+</body>
+</html>
